@@ -38,7 +38,7 @@ export default class User extends BaseEntity<User> {
 		type: "array",
 		model: "Achievement"
 	})
-    achievments: Promise<Achievement[]>
+    achievements: Promise<Achievement[]>
 
 	@OneToMany(
 		() => Training,
@@ -95,10 +95,13 @@ export default class User extends BaseEntity<User> {
 	xpPoints: number = 0;
 	
 	public async toJSON(): Promise<unknown> {
+		const achievements = (await this.achievements) || [];
+
 		return {
 			id: this.id,
 			username: this.username,
 			email: this.email,
+			achievements: await (await this.achievements).map(({name, icon}) => ({name, icon })),
 			streak: this.streak,
 			xpPoints: this.xpPoints,
 			avatar: this.avatar || CONFIG.DEFAULTS.AVATAR

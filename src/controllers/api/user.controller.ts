@@ -45,8 +45,24 @@ export default class UserController extends BaseController {
 	@httpGet("/profile", checkAuthenticated)
 	public async getProfile(req: Request, res: Response) {
 		const user = req.user as User;
-
         res.json(await user.toJSON());
+	}
+
+	@ApiOperationGet({
+		path: "/achievements",
+		summary: "Get user achievements",
+		responses: {
+			200: { type: "array", model: User.NAME },
+			401: {}
+		},
+		security: {
+			APIKeyHeader: []
+		}
+	})
+	@httpGet("/achievements", checkAuthenticated)
+	public async getUserAchievements(req: Request, res: Response) {
+		const user = req.user as User;
+
 	}
 
 	@ApiOperationPut({

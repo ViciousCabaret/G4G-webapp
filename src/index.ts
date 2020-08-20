@@ -20,6 +20,8 @@ import "./controllers/api/auth.controller";
 import "./controllers/api/training.controller";
 import "./controllers/api/weapon.controller";
 import "./controllers/api/user.controller";
+import "./controllers/api/stats.controller";
+import "./controllers/api/ranking.controller";
 
 ConfigUtil.parse("./config.ini");
 

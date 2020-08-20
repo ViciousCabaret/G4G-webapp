@@ -16,4 +16,12 @@ export default class TrainingRepository extends BaseRepository<Training> {
             .where("t.user = :user", { user: user.id })
             .getMany();
     }
+
+    public async countByUser(user: User): Promise<number> {
+        return await this.repository
+            .createQueryBuilder("t")
+			.select("t")
+            .where("t.user = :user", { user: user.id })
+            .getCount();
+    }
 }
