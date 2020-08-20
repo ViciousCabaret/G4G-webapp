@@ -13,3 +13,4 @@ firebase-adminsdk-config.json
 ormconfig.json
 .idea
 nodemon
+.DS_Store

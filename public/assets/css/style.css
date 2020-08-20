@@ -5670,6 +5670,7 @@ iframe[name="google_conversion_frame"] { height:1px; min-height:0; display:none;
 	width: 33%;
 	float: left;
 	position: relative;
+    min-width: 180px;
 }
 
 .training-div .c-2 {
@@ -5708,4 +5709,12 @@ iframe[name="google_conversion_frame"] { height:1px; min-height:0; display:none;
 
 .text-grey {
 	color: #646464 !important;
+}
+
+.text-white {
+	color: white !important;
+}
+
+.sc_clients_item img {
+	height: 64px;
 }
